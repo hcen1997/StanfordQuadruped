@@ -14,11 +14,11 @@ they two get human command and translate to machine code for JoystickInterface.p
   
    
 ### diagram  
-"""
+<html>
         |--> ps4 joystick    --> PupperCommand   --|  
 human --|                                          |--> JoystickInterface.py  
         |--> controller.html --> WebInterface.py --|  
-"""
+</html>
   
 ### other  
 do-what-ever-you-like  
