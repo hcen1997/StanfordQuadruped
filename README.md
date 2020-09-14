@@ -15,8 +15,8 @@ they two get human command and translate to machine code for JoystickInterface.p
    
 ### diagram  
 <html>
-        |--> ps4 joystick    --> PupperCommand   --|  
-human --|                                          |--> JoystickInterface.py  
+        |--> ps4 joystick    --> PupperCommand   --|<br>
+human --|                                          |--> JoystickInterface.py<br>
         |--> controller.html --> WebInterface.py --|  
 </html>
   
