@@ -22,3 +22,6 @@ human --|..........................................|--> JoystickInterface.py
   
 ### other  
 do-what-ever-you-like  
+
+### todo 
+rebuild with https://yoannmoi.net/nipplejs/
