@@ -3,17 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>pupper web joystick</title>
-    <script src="//unpkg.com/vue/dist/vue.js"></script>
-    <script src="//unpkg.com/element-ui@2.13.2/lib/index.js"></script>
-    <style>
-        @import url("//unpkg.com/element-ui@2.13.2/lib/theme-chalk/index.css");
-
-    </style>
+    <script src="./lib/vue.min.js"></script>
 </head>
 <body>
 <div id="app">
-    <el-container style="width:800px;margin:0 auto">
-        <el-header>I'm a joystick</el-header>
+    <div style="width:800px;margin:0 auto">
+        <h2>I'm a joystick</h2>
         <el-main>
             <el-row>
                 <el-col :span="6">
@@ -21,7 +16,7 @@
                         <el-tooltip class="item" effect="light"
                                     content="Press to toggle active mode and deactivate mode."
                                     placement="bottom-start">
-                            <el-button>L1</el-button>
+                            <button>L1</button>
                         </el-tooltip>
                     </div>
                 </el-col>
@@ -48,7 +43,7 @@
                         <el-tooltip class="item" effect="light"
                                     content="Press to transition between Rest mode and Trot mode."
                                     placement="bottom-start">
-                            <el-button>R1</el-button>
+                            <button>R1</button>
                         </el-tooltip>
                     </div>
                 </el-col>
@@ -65,21 +60,21 @@
                             <div>
                                 <el-row>
                                     <el-col :span="8">
-                                        <el-button style="visibility:hidden;">
+                                        <button style="visibility:hidden;">
                                             ↓
-                                        </el-button>
+                                        </button>
                                     </el-col>
                                     <el-col :span="8">
                                         <el-tooltip class="item" effect="light"
                                                     content="raises and lowers the body."
                                                     placement="bottom-start">
-                                            <el-button>↑</el-button>
+                                            <button>↑</button>
                                         </el-tooltip>
                                     </el-col>
                                     <el-col :span="8">
-                                        <el-button style="visibility:hidden;">
+                                        <button style="visibility:hidden;">
                                             ↓
-                                        </el-button>
+                                        </button>
                                     </el-col>
                                 </el-row>
                                 <el-row>
@@ -87,40 +82,40 @@
                                         <el-tooltip class="item" effect="light"
                                                     content="rolls the body left/right."
                                                     placement="bottom-start">
-                                            <el-button>←</el-button>
+                                            <button>←</button>
                                         </el-tooltip>
                                     </el-col>
                                     <el-col :span="8">
-                                        <el-button style="visibility:hidden;">
+                                        <button style="visibility:hidden;">
                                             ↓
-                                        </el-button>
+                                        </button>
                                     </el-col>
                                     <el-col :span="8">
                                         <el-tooltip class="item" effect="light"
                                                     content="rolls the body left/right."
                                                     placement="bottom-start">
-                                            <el-button>→</el-button>
+                                            <button>→</button>
                                         </el-tooltip>
                                     </el-col>
                                 </el-row>
 
                                 <el-row>
                                     <el-col :span="8">
-                                        <el-button style="visibility:hidden;">
+                                        <button style="visibility:hidden;">
                                             ↓
-                                        </el-button>
+                                        </button>
                                     </el-col>
                                     <el-col :span="8">
                                         <el-tooltip class="item" effect="light"
                                                     content="raises and lowers the body."
                                                     placement="bottom-start">
-                                            <el-button>↓</el-button>
+                                            <button>↓</button>
                                         </el-tooltip>
                                     </el-col>
                                     <el-col :span="8">
-                                        <el-button style="visibility:hidden;">
+                                        <button style="visibility:hidden;">
                                             ↓
-                                        </el-button>
+                                        </button>
                                     </el-col>
                                 </el-row>
 
@@ -133,7 +128,7 @@
                         <el-tooltip class="item" effect="light"
                                     content="Press it three times to complete a full hop."
                                     placement="bottom-start">
-                            <el-button>“X”</el-button>
+                            <button>“X”</button>
                         </el-tooltip>
                     </div>
                 </el-col>
@@ -151,22 +146,22 @@
                                 <el-tooltip class="item" effect="light"
                                             content="moves the robot forward/backwards when in Trot mode."
                                             placement="bottom-start">
-                                    <el-button>↑</el-button>
+                                    <button>↑</button>
                                 </el-tooltip>
                                 <el-tooltip class="item" effect="light"
                                             content="moves the robot forward/backwards when in Trot mode."
                                             placement="bottom-start">
-                                    <el-button>↓</el-button>
+                                    <button>↓</button>
                                 </el-tooltip>
                                 <el-tooltip class="item" effect="light"
                                             content="moves the robot left/right when in Trot mode."
                                             placement="bottom-start">
-                                    <el-button>←</el-button>
+                                    <button>←</button>
                                 </el-tooltip>
                                 <el-tooltip class="item" effect="light"
                                             content="moves the robot left/right when in Trot mode."
                                             placement="bottom-start">
-                                    <el-button>→</el-button>
+                                    <button>→</button>
                                 </el-tooltip>
                             </div>
                         </el-card>
@@ -182,22 +177,22 @@
                                 <el-tooltip class="item" effect="light"
                                             content="pitches the robot forward and backward."
                                             placement="bottom-start">
-                                    <el-button>↑</el-button>
+                                    <button>↑</button>
                                 </el-tooltip>
                                 <el-tooltip class="item" effect="light"
                                             content="pitches the robot forward and backward."
                                             placement="bottom-start">
-                                    <el-button>↓</el-button>
+                                    <button>↓</button>
                                 </el-tooltip>
                                 <el-tooltip class="item" effect="light"
                                             content="turns the robot left and right."
                                             placement="bottom-start">
-                                    <el-button>←</el-button>
+                                    <button>←</button>
                                 </el-tooltip>
                                 <el-tooltip class="item" effect="light"
                                             content="turns the robot left and right."
                                             placement="bottom-start">
-                                    <el-button>→</el-button>
+                                    <button>→</button>
                                 </el-tooltip>
                             </div>
                         </el-card>
@@ -284,8 +279,16 @@
                 </el-col>
             </el-row>
         </el-main>
-    </el-container>
+    </div>
 </div>
+<div id="dynamic" style="height: 200px;width: 200px;background-color: lightgrey;"></div>
+<script src="./lib/nipplejs.min.js"></script>
+<script>
+    var dynamic = nipplejs.create({
+        zone: document.getElementById('dynamic'),
+        color: 'blue'
+    });
+</script>
 <script>
 let Main = {
     data() {
