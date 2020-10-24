@@ -7,297 +7,241 @@
     <script src="//unpkg.com/element-ui@2.13.2/lib/index.js"></script>
     <style>
         @import url("//unpkg.com/element-ui@2.13.2/lib/theme-chalk/index.css");
-
     </style>
+    <script src="lib/nipplejs-0.4.0/dist/nipplejs.js"></script>
 </head>
 <body>
 <div id="app">
-    <el-container style="width:800px;margin:0 auto">
-        <el-header>I'm a joystick</el-header>
-        <el-main>
+    <el-header>I'm a joystick</el-header>
+    <el-tooltip class="item" effect="light"
+                content="Press to toggle active mode and deactivate mode."
+                placement="bottom-start">
+        <el-button>L1</el-button>
+    </el-tooltip>
+    <el-switch
+            v-model="value1"
+            active-text="active"
+            inactive-text="deactivate">
+    </el-switch>
+    <el-switch
+            v-model="value2"
+            active-text="Rest"
+            inactive-text="Trot">
+    </el-switch>
+    <el-tooltip class="item" effect="light"
+                content="Press to transition between Rest mode and Trot mode."
+                placement="bottom-start">
+        <el-button>R1</el-button>
+    </el-tooltip>
+    <el-card class="box-card">
+        <div slot="header" class="clearfix">
+            <span>D-Pad</span>
+        </div>
+        <div>
             <el-row>
-                <el-col :span="6">
-                    <div class="grid-content bg-purple">
-                        <el-tooltip class="item" effect="light"
-                                    content="Press to toggle active mode and deactivate mode."
-                                    placement="bottom-start">
-                            <el-button>L1</el-button>
-                        </el-tooltip>
-                    </div>
+                <el-col :span="8">
+                    <el-button style="visibility:hidden;">
+                        ↓
+                    </el-button>
                 </el-col>
-                <el-col :span="6">
-                    <div class="grid-content bg-purple-light">
-                        <el-switch
-                                v-model="value1"
-                                active-text="active"
-                                inactive-text="deactivate">
-                        </el-switch>
-                    </div>
+                <el-col :span="8">
+                    <el-tooltip class="item" effect="light"
+                                content="raises and lowers the body."
+                                placement="bottom-start">
+                        <el-button>↑</el-button>
+                    </el-tooltip>
                 </el-col>
-                <el-col :span="6">
-                    <div class="grid-content bg-purple">
-                        <el-switch
-                                v-model="value2"
-                                active-text="Rest"
-                                inactive-text="Trot">
-                        </el-switch>
-                    </div>
-                </el-col>
-                <el-col :span="6">
-                    <div class="grid-content bg-purple-light">
-                        <el-tooltip class="item" effect="light"
-                                    content="Press to transition between Rest mode and Trot mode."
-                                    placement="bottom-start">
-                            <el-button>R1</el-button>
-                        </el-tooltip>
-                    </div>
-                </el-col>
-            </el-row>
-
-
-            <el-row>
-                <el-col :span="12">
-                    <div class="grid-content bg-purple">
-                        <el-card class="box-card">
-                            <div slot="header" class="clearfix">
-                                <span>D-Pad</span>
-                            </div>
-                            <div>
-                                <el-row>
-                                    <el-col :span="8">
-                                        <el-button style="visibility:hidden;">
-                                            ↓
-                                        </el-button>
-                                    </el-col>
-                                    <el-col :span="8">
-                                        <el-tooltip class="item" effect="light"
-                                                    content="raises and lowers the body."
-                                                    placement="bottom-start">
-                                            <el-button>↑</el-button>
-                                        </el-tooltip>
-                                    </el-col>
-                                    <el-col :span="8">
-                                        <el-button style="visibility:hidden;">
-                                            ↓
-                                        </el-button>
-                                    </el-col>
-                                </el-row>
-                                <el-row>
-                                    <el-col :span="8">
-                                        <el-tooltip class="item" effect="light"
-                                                    content="rolls the body left/right."
-                                                    placement="bottom-start">
-                                            <el-button>←</el-button>
-                                        </el-tooltip>
-                                    </el-col>
-                                    <el-col :span="8">
-                                        <el-button style="visibility:hidden;">
-                                            ↓
-                                        </el-button>
-                                    </el-col>
-                                    <el-col :span="8">
-                                        <el-tooltip class="item" effect="light"
-                                                    content="rolls the body left/right."
-                                                    placement="bottom-start">
-                                            <el-button>→</el-button>
-                                        </el-tooltip>
-                                    </el-col>
-                                </el-row>
-
-                                <el-row>
-                                    <el-col :span="8">
-                                        <el-button style="visibility:hidden;">
-                                            ↓
-                                        </el-button>
-                                    </el-col>
-                                    <el-col :span="8">
-                                        <el-tooltip class="item" effect="light"
-                                                    content="raises and lowers the body."
-                                                    placement="bottom-start">
-                                            <el-button>↓</el-button>
-                                        </el-tooltip>
-                                    </el-col>
-                                    <el-col :span="8">
-                                        <el-button style="visibility:hidden;">
-                                            ↓
-                                        </el-button>
-                                    </el-col>
-                                </el-row>
-
-                            </div>
-                        </el-card>
-                    </div>
-                </el-col>
-                <el-col :span="12">
-                    <div class="grid-content bg-purple-light">
-                        <el-tooltip class="item" effect="light"
-                                    content="Press it three times to complete a full hop."
-                                    placement="bottom-start">
-                            <el-button>“X”</el-button>
-                        </el-tooltip>
-                    </div>
-                </el-col>
-            </el-row>
-
-
-            <el-row>
-                <el-col :span="12">
-                    <div class="grid-content bg-purple">
-                        <el-card class="box-card">
-                            <div slot="header" class="clearfix">
-                                <span>Left joystick</span>
-                            </div>
-                            <div>
-                                <el-tooltip class="item" effect="light"
-                                            content="moves the robot forward/backwards when in Trot mode."
-                                            placement="bottom-start">
-                                    <el-button>↑</el-button>
-                                </el-tooltip>
-                                <el-tooltip class="item" effect="light"
-                                            content="moves the robot forward/backwards when in Trot mode."
-                                            placement="bottom-start">
-                                    <el-button>↓</el-button>
-                                </el-tooltip>
-                                <el-tooltip class="item" effect="light"
-                                            content="moves the robot left/right when in Trot mode."
-                                            placement="bottom-start">
-                                    <el-button>←</el-button>
-                                </el-tooltip>
-                                <el-tooltip class="item" effect="light"
-                                            content="moves the robot left/right when in Trot mode."
-                                            placement="bottom-start">
-                                    <el-button>→</el-button>
-                                </el-tooltip>
-                            </div>
-                        </el-card>
-                    </div>
-                </el-col>
-                <el-col :span="12">
-                    <div class="grid-content bg-purple-light">
-                        <el-card class="box-card">
-                            <div slot="header" class="clearfix">
-                                <span>Right joystick</span>
-                            </div>
-                            <div>
-                                <el-tooltip class="item" effect="light"
-                                            content="pitches the robot forward and backward."
-                                            placement="bottom-start">
-                                    <el-button>↑</el-button>
-                                </el-tooltip>
-                                <el-tooltip class="item" effect="light"
-                                            content="pitches the robot forward and backward."
-                                            placement="bottom-start">
-                                    <el-button>↓</el-button>
-                                </el-tooltip>
-                                <el-tooltip class="item" effect="light"
-                                            content="turns the robot left and right."
-                                            placement="bottom-start">
-                                    <el-button>←</el-button>
-                                </el-tooltip>
-                                <el-tooltip class="item" effect="light"
-                                            content="turns the robot left and right."
-                                            placement="bottom-start">
-                                    <el-button>→</el-button>
-                                </el-tooltip>
-                            </div>
-                        </el-card>
-                    </div>
+                <el-col :span="8">
+                    <el-button style="visibility:hidden;">
+                        ↓
+                    </el-button>
                 </el-col>
             </el-row>
             <el-row>
-                <el-col :span="12">
-                    <div class="grid-content bg-purple">
-                        <el-card class="box-card">
-                            <div slot="header" class="clearfix">
-                                <span>Left joystick</span>
-                            </div>
-                            <div>
-                                <el-row>
-                                    <el-col :span="18">
-                                        <el-tooltip class="item" effect="light"
-                                                    content="moves the robot left/right when in Trot mode."
-                                                    placement="bottom-start">
-                                            <el-slider
-                                                    style="margin-top: 100px;"
-                                                    value="127"
-                                                    max="255"
-                                                    length="127px">
-                                            </el-slider>
-                                        </el-tooltip>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <el-tooltip class="item" effect="light"
-                                                    content="moves the robot forward/backwards when in Trot mode."
-                                                    placement="bottom-start">
-                                            <!--      v-model="value"-->
-                                            <el-slider
-                                                    vertical
-                                                    value="127"
-                                                    max="255"
-                                                    height="255px">
-                                            </el-slider>
-                                        </el-tooltip>
-                                    </el-col>
-                                </el-row>
-                            </div>
-                        </el-card>
-                    </div>
+                <el-col :span="8">
+                    <el-tooltip class="item" effect="light"
+                                content="rolls the body left/right."
+                                placement="bottom-start">
+                        <el-button>←</el-button>
+                    </el-tooltip>
                 </el-col>
-                <el-col :span="12">
-                    <div class="grid-content bg-purple-light">
-                        <el-card class="box-card">
-                            <div slot="header" class="clearfix">
-                                <span>Right joystick</span>
-                            </div>
-                            <div>
-                                <el-row>
-                                    <el-col :span="6">
-                                        <el-tooltip class="item" effect="light"
-                                                    content="pitches the robot forward and backward."
-                                                    placement="bottom-start">
-                                            <el-slider
-                                                    vertical
-                                                    value="127"
-                                                    max="255"
-                                                    height="255px">
-                                            </el-slider>
-                                        </el-tooltip>
-                                    </el-col>
-                                    <el-col :span="18">
-                                        <el-tooltip class="item" effect="light"
-                                                    content="turns the robot left and right."
-                                                    placement="bottom-start">
-                                            <!--      v-model="value"-->
-                                            <el-slider
-                                                    style="margin-top: 100px;"
-                                                    value="127"
-                                                    max="255"
-                                            >
-                                            </el-slider>
-                                        </el-tooltip>
-                                    </el-col>
-                                </el-row>
-
-                            </div>
-                        </el-card>
-                    </div>
+                <el-col :span="8">
+                    <el-button style="visibility:hidden;">
+                        ↓
+                    </el-button>
+                </el-col>
+                <el-col :span="8">
+                    <el-tooltip class="item" effect="light"
+                                content="rolls the body left/right."
+                                placement="bottom-start">
+                        <el-button>→</el-button>
+                    </el-tooltip>
                 </el-col>
             </el-row>
-        </el-main>
-    </el-container>
+
+            <el-row>
+                <el-col :span="8">
+                    <el-button style="visibility:hidden;">
+                        ↓
+                    </el-button>
+                </el-col>
+                <el-col :span="8">
+                    <el-tooltip class="item" effect="light"
+                                content="raises and lowers the body."
+                                placement="bottom-start">
+                        <el-button>↓</el-button>
+                    </el-tooltip>
+                </el-col>
+                <el-col :span="8">
+                    <el-button style="visibility:hidden;">
+                        ↓
+                    </el-button>
+                </el-col>
+            </el-row>
+
+        </div>
+    </el-card>
+    <el-tooltip class="item" effect="light"
+                content="Press it three times to complete a full hop."
+                placement="bottom-start">
+        <el-button>“X”</el-button>
+    </el-tooltip>
+    <el-card class="box-card">
+        <div slot="header" class="clearfix">
+            <span>Left joystick</span>
+        </div>
+        <div>
+            <el-tooltip class="item" effect="light"
+                        content="moves the robot forward/backwards when in Trot mode."
+                        placement="bottom-start">
+                <el-button>↑</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="light"
+                        content="moves the robot forward/backwards when in Trot mode."
+                        placement="bottom-start">
+                <el-button>↓</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="light"
+                        content="moves the robot left/right when in Trot mode."
+                        placement="bottom-start">
+                <el-button>←</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="light"
+                        content="moves the robot left/right when in Trot mode."
+                        placement="bottom-start">
+                <el-button>→</el-button>
+            </el-tooltip>
+        </div>
+    </el-card>
+    <el-card class="box-card">
+        <div slot="header" class="clearfix">
+            <span>Right joystick</span>
+        </div>
+        <div>
+            <el-tooltip class="item" effect="light"
+                        content="pitches the robot forward and backward."
+                        placement="bottom-start">
+                <el-button>↑</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="light"
+                        content="pitches the robot forward and backward."
+                        placement="bottom-start">
+                <el-button>↓</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="light"
+                        content="turns the robot left and right."
+                        placement="bottom-start">
+                <el-button>←</el-button>
+            </el-tooltip>
+            <el-tooltip class="item" effect="light"
+                        content="turns the robot left and right."
+                        placement="bottom-start">
+                <el-button>→</el-button>
+            </el-tooltip>
+        </div>
+    </el-card>
+    <el-card class="box-card">
+        <div slot="header" class="clearfix">
+            <span>Left joystick</span>
+        </div>
+        <div>
+            <el-row>
+                <el-col :span="18">
+                    <el-tooltip class="item" effect="light"
+                                content="moves the robot left/right when in Trot mode."
+                                placement="bottom-start">
+                        <el-slider
+                                style="margin-top: 100px;"
+                                value="127"
+                                max="255"
+                                length="127px">
+                        </el-slider>
+                    </el-tooltip>
+                </el-col>
+                <el-col :span="6">
+                    <el-tooltip class="item" effect="light"
+                                content="moves the robot forward/backwards when in Trot mode."
+                                placement="bottom-start">
+                        <!--      v-model="value"-->
+                        <el-slider
+                                vertical
+                                value="127"
+                                max="255"
+                                height="255px">
+                        </el-slider>
+                    </el-tooltip>
+                </el-col>
+            </el-row>
+        </div>
+    </el-card>
+    <el-card class="box-card">
+        <div slot="header" class="clearfix">
+            <span>Right joystick</span>
+        </div>
+        <div>
+            <el-row>
+                <el-col :span="6">
+                    <el-tooltip class="item" effect="light"
+                                content="pitches the robot forward and backward."
+                                placement="bottom-start">
+                        <el-slider
+                                vertical
+                                value="127"
+                                max="255"
+                                height="255px">
+                        </el-slider>
+                    </el-tooltip>
+                </el-col>
+                <el-col :span="18">
+                    <el-tooltip class="item" effect="light"
+                                content="turns the robot left and right."
+                                placement="bottom-start">
+                        <!--      v-model="value"-->
+                        <el-slider
+                                style="margin-top: 100px;"
+                                value="127"
+                                max="255"
+                        >
+                        </el-slider>
+                    </el-tooltip>
+                </el-col>
+            </el-row>
+
+        </div>
+    </el-card>
 </div>
 <script>
-let Main = {
-    data() {
-      return {
-        value1: true,
-        value2: true
-      }
-    }
-  };
+    let Main = {
+        data() {
+            return {
+                value1: true,
+                value2: true
+            }
+        }
+    };
 
-  let TT = Vue.extend(Main)
-new TT().$mount('#app')
+    let TT = Vue.extend(Main)
+    new TT().$mount('#app')
 
 </script>
 </body>
