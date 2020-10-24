@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, user-scalable=no">
     <title>pupper web joystick</title>
     <script src="//unpkg.com/vue/dist/vue.js"></script>
     <script src="//unpkg.com/element-ui@2.13.2/lib/index.js"></script>
@@ -33,11 +34,19 @@
         .el-card__body {
             padding: 0;
         }
-        .nip{
+
+        .nip {
             height: 9em;
             width: 23em;
+            position: relative;
+        /*    add position to enable nipple in box*/
         }
 
+        .bord {
+            border: solid;
+            border-width: 3px;
+            border-color: black;
+        }
     </style>
 </head>
 <body>
@@ -141,7 +150,7 @@
         </el-tooltip>
     </div>
 
-    <el-card class="box-card inline nip">
+    <el-card class="box-card inline nip" id="left-joy">
         <div slot="header" class="clearfix">
             <span>Left joystick</span>
         </div>
@@ -168,7 +177,7 @@
             </el-tooltip>
         </div>
     </el-card>
-    <el-card class="box-card inline nip">
+    <el-card class="box-card inline nip" id="right-joy">
         <div slot="header" class="clearfix">
             <span>Right joystick</span>
         </div>
@@ -208,7 +217,18 @@
 
     let TT = Vue.extend(Main)
     new TT().$mount('#app')
-
+</script>
+<script>
+    let left = nipplejs.create({
+        zone: document.getElementById('left-joy'),
+        color: 'blue'
+    });
+    let right = nipplejs.create({
+        zone: document.getElementById('right-joy'),
+        color: 'red',
+        mode:'static',
+        position:{top: '250px', left: '150px'}
+    });
 </script>
 </body>
 </html>
