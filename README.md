@@ -24,4 +24,5 @@ human --|..........................................|--> JoystickInterface.py
 do-what-ever-you-like  
 
 ### todo 
-rebuild with https://yoannmoi.net/nipplejs/
+** rebuild with https://yoannmoi.net/nipplejs/
+make android app
