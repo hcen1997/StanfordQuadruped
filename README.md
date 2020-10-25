@@ -25,4 +25,5 @@ do-what-ever-you-like
 
 ### todo 
 ** rebuild with https://yoannmoi.net/nipplejs/
-make android app
+// make android app
+    android webview do not support nipplejs , just use normal web browser
